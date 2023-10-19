@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os
+
+if os.path.isfile("env.py"):
+    import env
 
 from pathlib import Path
 
@@ -72,7 +76,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+os.environ.get("DATABASE_URL")
 
 DATABASES = {
     'default': {
